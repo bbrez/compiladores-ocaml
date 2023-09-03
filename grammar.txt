@@ -1,0 +1,53 @@
+<program> ::= <declaration-list>
+
+<declaration-list> ::= <declaration> 
+    | <declaration-list> <declaration>
+
+<declaration> ::= <variable-declaration>
+    | <function-declaration>
+
+<variable-declaration> ::= <type-specifier> <identifier> ;
+
+<type-specifier> ::= int
+    | float
+    | double
+    | char
+
+<function-declaration> ::= <function-return-type> <identifier> ( <parameter-list> ) <compound-statement>
+
+<function-return-type> ::= <type-specifier>
+    | void
+
+<parameter-list> ::= <parameter>
+    | <parameter-list> , <parameter>
+
+<parameter> ::= <type-specifier> <identifier>
+
+<compound-statement> ::= { <statement-list> }
+
+<statement-list> ::= <statement>
+    | <statement-list> <statement>
+
+<statement> ::= <expression-statement>
+    | <conditional-statement>
+    | <while-loop>
+    | <for-loop>
+    | <return-statement>
+    | <compound-statement>
+
+<expression-statement> ::= <expression> ;
+
+<expression> ::= <assignment-expression>
+
+<assignment-expression> ::= <identifier> = <expression>
+
+<conditional-statement> ::= if ( <expression> ) <statement> else <statement>
+    | if ( <expression> ) <statement>
+
+<while-loop> ::= while ( <expression> ) <statement>
+
+<for-loop> ::= for ( <expression> ; <expression> ; <expression> ) <statement>
+
+<return-statement> ::= return <expression> ;
+
+<identifier> ::= [a-zA-Z_][a-zA-Z0-9_]*
