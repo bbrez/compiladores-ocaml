@@ -1,8 +1,0 @@
-(env
-  (dev
-    (flags (:standard -warn-error -A))))
-
-(executable
- (public_name compiler)
- (name main)
- (libraries Lexer))
