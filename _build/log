@@ -1,9 +1,9 @@
-# dune exec compiler tests/complete.c tests/illegal_character.c tests/invalid_float.c tests/simple.c tests/unterminated_string.c
+# dune build
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Workspace root: /home/minorro/source/compiler
 # Auto-detected concurrency: 12
-$ /usr/bin/ocamlc.opt -config > /tmp/dune_1cf5ff_output
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_e07cfb_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -190,5 +190,9 @@ $ /usr/bin/ocamlc.opt -config > /tmp/dune_1cf5ff_output
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I lexer/.Lexer.objs/byte -I lexer/.Lexer.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -o bin/main.exe lexer/Lexer.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I parser/.Parser.objs/byte -I lexer/.Lexer.objs/byte -no-alias-deps -opaque -o parser/.Parser.objs/byte/parser.cmo -c -impl parser/parser.ml)
+> File "parser/parser.ml", line 1, characters 19-31:
+> 1 | let parse (tokens: Parser.token list) =
+>                        ^^^^^^^^^^^^
+> Error: Unbound module Parser
+[2]
